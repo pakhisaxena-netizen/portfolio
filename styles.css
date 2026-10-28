@@ -1,0 +1,149 @@
+/* Custom Styles & Executive Design Polish */
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(197, 138, 35, 0.6);
+}
+
+/* Navigation Blur & Glassmorphism */
+#mainHeader.scrolled {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.dark #mainHeader.scrolled {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Smooth Transitions */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #c58a23;
+  transition: width 0.25s ease-in-out;
+  border-radius: 9999px;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Subtle Card Glow Effect */
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.03);
+  }
+}
+
+.animate-tilt {
+  animation: subtlePulse 6s ease-in-out infinite;
+}
+
+/* PRINT MEDIA STYLES - Executive One-Pager Printout */
+@media print {
+  /* Hide interactive web elements */
+  #mainHeader,
+  #themeToggle,
+  #mobileMenuBtn,
+  #mobileMenu,
+  #contactForm,
+  #reportModal,
+  button,
+  footer,
+  .bg-gradient-to-tr,
+  .animate-tilt,
+  .nav-link::after {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+
+  section {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    border: none !important;
+  }
+
+  h1 {
+    font-size: 24pt !important;
+    color: #111827 !important;
+  }
+
+  h2 {
+    font-size: 18pt !important;
+    color: #111827 !important;
+    margin-top: 1rem !important;
+  }
+
+  h3 {
+    font-size: 14pt !important;
+    color: #1f2937 !important;
+  }
+
+  .text-brand-600, .text-brand-500, .text-brand-400 {
+    color: #884f18 !important;
+  }
+
+  .bg-slate-50, .dark\:bg-navy-900, .dark\:bg-navy-950, .bg-white {
+    background: transparent !important;
+  }
+
+  .border, .border-slate-200, .dark\:border-slate-800 {
+    border-color: #e5e7eb !important;
+  }
+
+  /* Keep headshot small and clean in print */
+  img[src="pakhi-profile.png"] {
+    width: 120px !important;
+    height: 120px !important;
+    border-radius: 50% !important;
+  }
+
+  .shadow-sm, .shadow-md, .shadow-xl, .shadow-2xl {
+    box-shadow: none !important;
+  }
+
+  .grid {
+    display: block !important;
+  }
+
+  .space-y-6 > * + *, .space-y-12 > * + * {
+    margin-top: 1rem !important;
+  }
+}
